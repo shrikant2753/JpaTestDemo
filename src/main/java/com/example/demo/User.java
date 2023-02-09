@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -12,14 +13,17 @@ public class User {
     private String name;
     private int age;
     private String mobileNo;
+    @Column(name="Email", unique = true)
+    private String email;
 
     public User(){}
 
-    public User(int id, String name, int age, String mobileNo) {
+    public User(int id, String name, int age, String mobileNo, String email) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.mobileNo = mobileNo;
+        this.email = email;
     }
 
     public int getId() {
@@ -52,5 +56,13 @@ public class User {
 
     public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
